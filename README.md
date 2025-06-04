@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  Interactive CNN Visualizer with ReLU & Loss Tracking
 
-## Getting Started
+## 🔍 What It Is  
+An interactive, animated visualizer that demonstrates how a **Convolutional Neural Network (CNN)** learns to match a target output by adjusting its filter weights using **gradient descent** — step by step.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+##  What You Built
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+###  1.  5×5 Input Matrix
+- Binary pattern (1s and 0s)  
+- Represents a tiny grayscale image or signal
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+###  2.  3×3 Learnable Filter
+- Starts with initialized weights  
+- Moves across 9 positions (3×3 output) using a sliding window  
+- Performs convolution on each patch
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3.  3×3 Target Output Matrix
+- The CNN’s goal is to learn filter weights that produce this exact output from the input
 
-## Learn More
+###  4. Forward + Backward Passes
+At each position, the filter:
+- Computes a dot product with the 3×3 input patch (**forward pass**)  
+- Compares the result with the target value  
+- Calculates the error (`prediction - target`)  
+- Uses the error to update the gradient for each filter weight (**backward pass**)
 
-To learn more about Next.js, take a look at the following resources:
+###  5. Loss Calculation (MSE)
+- After each full sweep over the input:
+  - Compute **Mean Squared Error** over all 9 outputs
+  - Track the loss over time and **plot it live**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+###  6. Weight Updates (Gradient Descent)
+- After each full forward + backward pass:
+  - Average the accumulated gradients
+  - Update each filter weight using:  
+    ```
+    w = w - η ⋅ avg_gradient
+    ```
+    where `η` is the learning rate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Project Features
+- ReLU activation applied to the output  
+- Live MSE loss graph updates  
+- Reset button for easy re-runs  
+- Fully responsive visual layout using Tailwind CSS + Framer Motion
