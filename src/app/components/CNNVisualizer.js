@@ -159,7 +159,7 @@ export default function CNNVisualizer({ onLossUpdate }) {
 
   return (
     <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg text-center">
-      <h2 className="text-2xl font-semibold mb-4">CNN Visualizer: Auto-Train Mode</h2>
+      <h2 className="text-2xl font-semibold mb-4">CNN Visualizer</h2>
 
       <div className="flex flex-wrap justify-center gap-10">
         {/* Input */}
