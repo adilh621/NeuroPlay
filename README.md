@@ -5,7 +5,7 @@ An interactive, animated visualizer that demonstrates how a **Convolutional Neur
 
 ---
 
-##  What You Built
+##  What I've Built
 
 ###  1.  5×5 Input Matrix
 - Binary pattern (1s and 0s)  

@@ -133,7 +133,8 @@ export default function CNNVisualizer({ onLossUpdate }) {
 
       // Update UI state
       setFilter(localFilter);
-      setGradient(Array(3).fill(0).map(() => Array(3).fill(0)));
+      // setGradient(Array(3).fill(0).map(() => Array(3).fill(0)));
+      setGradient(avgGrad);
       setLossHistory([...newLossHistory]);
       setStep(0);
       stepCount.current++;
