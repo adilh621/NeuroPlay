@@ -4,6 +4,8 @@
 An interactive, animated visualizer that demonstrates how a **Convolutional Neural Network (CNN)** learns to match a target output by adjusting its filter weights using **gradient descent** — step by step.
 
 ---
+![CNN Visualizer Demo](./public/neuroPlayGif.gif)
+
 
 ##  What I've Built
 
